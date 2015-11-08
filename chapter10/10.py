@@ -23,7 +23,7 @@ def function_10_3_2():
     import webbrowser
     webbrowser.open("http://www.baidu.com", True, 0)#打开浏览器
     
-def function_10_3_4():
+def function_10_3_4_set():#集合
     a=set([1,2,3])
     b=set([2,3,4])
     print a.union(b)
@@ -44,9 +44,51 @@ def function_10_3_4():
     
     print a.copy()
     print a.copy is a
+
+def function_10_3_4_heap():
+    from heapq import *
+    from random import shuffle
+    data=range(10)
+    shuffle(data)
+    heap=[]
+    for n in data:
+        heappush(heap,n)
+    print heap
+    heappush(heap,0.5)
+    print heap
     
+    heappop(heap)
+    heappop(heap)
+    print heap
+
+def function_10_3_4_deque():
+    from collections import deque
+    q=deque(range(5))
+    q.append(5)
     
+    q.appendleft(6)
+    print q
     
-function_10_3_4()
+    q.popleft()
+    print q
+    
+    q.rotate(3)#从下标为3的地方开始旋转
+    print q
+    
+    q.rotate(-1)#从第一开始旋转
+    print q
+
+def function_10_3_6_random():
+    from random import *
+    a=[1,2,3,4,5,6,7,8,9,0]
+    print sample(a,5)#从给定序列选择给定数目的元素，同时确保元素互不相同
+    
+    values=range(1,11) + ' J Q K'.split()
+    suits = 'diamonds clubs hearts spades'.split()
+    deck = ['%s of %s' % (v,s) for v in values for s in suits]
+    shuffle(deck)
+    pprint.pprint(deck[:12])
+    
+function_10_3_6_random()
 
 
